@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "769579196182",
+    "project_id": "travely-d9651",
+    "storage_bucket": "travely-d9651.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769579196182:android:00e069e02b9cb6c5ad7a37",
+        "android_client_info": {
+          "package_name": "com.ecode.travely"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769579196182-0bg356pdajui0r23jtr0qmfi6m5k64hd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARb1Xk0NF_7CbdxfN8svdvyZRsUV_H4Sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769579196182-0bg356pdajui0r23jtr0qmfi6m5k64hd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "769579196182-s1qo97193anijqsdluhhrsqlvc334g1i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ecode.travely"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769579196182:android:81c3c50ae0d3a963ad7a37",
+        "android_client_info": {
+          "package_name": "com.ecode.travely_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769579196182-0bg356pdajui0r23jtr0qmfi6m5k64hd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARb1Xk0NF_7CbdxfN8svdvyZRsUV_H4Sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769579196182-0bg356pdajui0r23jtr0qmfi6m5k64hd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "769579196182-s1qo97193anijqsdluhhrsqlvc334g1i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ecode.travely"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
