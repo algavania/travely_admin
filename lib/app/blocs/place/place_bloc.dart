@@ -34,7 +34,6 @@ class PlaceBloc extends Bloc<PlaceEvent, PlaceState> {
   ) async {
     _subscription = _repository.getPlaces().listen(
       (places) {
-        print('places $places');
         add(UpdatePlaces(places: places));
       },
     );

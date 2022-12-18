@@ -10,6 +10,7 @@ class PlaceRepository extends BasePlaceRepository {
   Stream<List<PlaceModel>> getPlaces() {
     return _db
         .collection('places')
+        .orderBy('createdAt', descending: true)
         .snapshots()
         .map((snapshot) {
       return snapshot.docs.map((doc) => PlaceModel.fromMap(doc.id, doc.data())).toList();

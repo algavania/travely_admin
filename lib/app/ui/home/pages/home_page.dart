@@ -7,6 +7,7 @@ import 'package:sizer/sizer.dart';
 import 'package:travely_admin/app/data/services/database_service.dart';
 import 'package:travely_admin/app/repositories/place/place_repository.dart';
 import 'package:travely_admin/app/routes/router.gr.dart';
+import 'package:travely_admin/app/widgets/reconnecting_widget.dart';
 
 import '../../../blocs/place/place_bloc.dart';
 import '../../../common/color_values.dart';
@@ -44,9 +45,11 @@ class _HomePageState extends State<HomePage> {
               context.loaderOverlay.hide();
             }
             if (state is PlaceLoaded) {
-              context.loaderOverlay.hide();
+              if (context.loaderOverlay.overlayWidgetType != ReconnectingWidget) {
+                context.loaderOverlay.hide();
+              }
               print('place loaded ${state.places}');
-              return SingleChildScrollView(
+              return state.places.isEmpty ? const Center(child: Text('Kamu belum menambahkan data.')) : SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(SharedCode.defaultPadding),
                   child: ListView.separated(
@@ -119,13 +122,18 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 2.h),
               ElevatedButton(onPressed: () async {
-                context.loaderOverlay.show();
-                try {
-                  await DatabaseService().removePlace(place);
-                } catch (e) {
-                  SharedCode.showErrorDialog(context, 'Error', e.toString());
-                }
-                context.loaderOverlay.hide();
+                SharedCode.showAlertDialog(context, 'Konfirmasi', 'Apakah kamu yakin ingin menghapus ${place.name}?', () async {
+                  context.loaderOverlay.show();
+                  try {
+                    await DatabaseService().removePlace(place);
+                    Future.delayed(Duration.zero, () {
+                      SharedCode.showSnackBar(context, 'success', 'Data berhasil dihapus');
+                    });
+                  } catch (e) {
+                    SharedCode.showErrorDialog(context, 'Error', e.toString());
+                  }
+                  context.loaderOverlay.hide();
+                });
               }, style: ElevatedButton.styleFrom(backgroundColor: Colors.red), child: const Text('Hapus Data'))
             ],
           ),

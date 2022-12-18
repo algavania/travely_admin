@@ -12,6 +12,7 @@ import 'package:travely_admin/app/common/shared_code.dart';
 import 'package:travely_admin/app/data/models/place_model.dart';
 import 'package:travely_admin/app/data/services/database_service.dart';
 import 'package:travely_admin/app/widgets/custom_text_field.dart';
+import 'package:travely_admin/app/widgets/reconnecting_widget.dart';
 
 class PlaceFormPage extends StatefulWidget {
   const PlaceFormPage({Key? key, this.placeModel}) : super(key: key);
@@ -133,7 +134,7 @@ class _PlaceFormPageState extends State<PlaceFormPage> {
   }
 
   Future<void> _uploadToFirebase() async {
-    context.loaderOverlay.show();
+    context.loaderOverlay.show(widget: const ReconnectingWidget());
     try {
       PlaceModel model = PlaceModel(
         name: _nameController.text,

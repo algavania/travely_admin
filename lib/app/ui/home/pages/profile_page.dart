@@ -20,8 +20,10 @@ class _ProfilePageState extends State<ProfilePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(onPressed: () {
-              context.loaderOverlay.show();
-              SharedCode().handleAuthenticationRouting(context: context, isLogout: true);
+              SharedCode.showAlertDialog(context, 'Konfirmasi', 'Apakah kamu yakin ingin keluar?', () {
+                context.loaderOverlay.show();
+                SharedCode().handleAuthenticationRouting(context: context, isLogout: true);
+              });
             }, style: ElevatedButton.styleFrom(backgroundColor: Colors.red), child: const Text('Logout'))
           ],
         ),

@@ -9,7 +9,7 @@ class DatabaseService {
     try {
       Map<String, Object?> json = model.toJson();
       json['createdAt'] = FieldValue.serverTimestamp();
-      return await places.add(model.toJson());
+      return await places.add(json);
     } catch (e) {
       throw e.toString();
     }

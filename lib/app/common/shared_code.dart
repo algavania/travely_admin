@@ -4,6 +4,7 @@ import 'package:loader_overlay/loader_overlay.dart';
 
 import '../../main.dart';
 import '../routes/router.gr.dart';
+import '../widgets/custom_alert_dialog.dart';
 import '../widgets/custom_error_dialog.dart';
 
 class SharedCode {
@@ -53,6 +54,15 @@ class SharedCode {
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  static void showAlertDialog(
+      BuildContext context, String title, String content, Function onYesTap) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return CustomAlertDialog(title: title, content: content, onYesTap: onYesTap);
+        });
   }
 
   Future<void> handleAuthenticationRouting(
